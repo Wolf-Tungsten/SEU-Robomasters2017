@@ -5,11 +5,11 @@
 
 #pragma once
 
-#include <fstream>
-using namespace std;
-
 #define LOG_FOUT_MORE // 输出详细的记录至文件
 #define LOG_COUT_MORE // 输出详细的记录至控制台
+
+#include <fstream>
+using namespace std;
 
 class CChariot
 {
@@ -18,9 +18,14 @@ public:
 	CChariot();
 	~CChariot();
 
+	int GetLastError();
+	bool IsError();
+
 protected:
 
 	int fdSerial;
+
+	bool SetLastError(int iError);
 
 private:
 
