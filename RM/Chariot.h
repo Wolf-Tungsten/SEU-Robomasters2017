@@ -1,26 +1,32 @@
 ﻿// Chariot.h
 // Version 1.0
-// Writed by Deyou Kong, 2017-05-29
+// Started by Deyou Kong, 2017-05-29
 // Checked by Deyou Kong, 2017-06-02
 
 #pragma once
 
-#include <iostream>
 #include <fstream>
-#include <fcntl.h>
-#include <unistd.h>
-#include <termios.h>
 using namespace std;
+
+#define LOG_FOUT_MORE // 输出详细的记录至文件
+#define LOG_COUT_MORE // 输出详细的记录至控制台
 
 class CChariot
 {
 public:
 
+	CChariot();
+	~CChariot();
+
+protected:
+
+	int fdSerial;
+
 private:
 
+	int iError;
+
 	ofstream fout;
-	
-	int fdSerial;
 	
 #pragma pack(push, 1)
 
