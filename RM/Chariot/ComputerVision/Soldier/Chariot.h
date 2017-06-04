@@ -1,12 +1,9 @@
 ﻿// Chariot.h
 // Version 1.0
 // Started by Deyou Kong, 2017-05-29
-// Checked by Deyou Kong, 2017-06-02
+// Checked by Deyou Kong, 2017-06-04
 
 #pragma once
-
-#define LOG_FOUT_MORE // 输出详细的记录至文件
-#define LOG_COUT_MORE // 输出详细的记录至控制台
 
 #include <fstream>
 using namespace std;
@@ -21,24 +18,36 @@ public:
 	int GetLastError();
 	bool IsError();
 
+	bool CtrlMove();
+	bool CtrlHead();
+
+
 protected:
 
 	int fdSerial;
 
+	void ErrRst();
 	bool SetLastError(int iError);
+
+	double Timer();
 
 private:
 
 	int iError;
 
 	ofstream fout;
+	bool bFoutMore; // 为true时输出详细的记录至文件
+	bool bCoutMore; // 为true时输出详细的记录至控制台
 	
+	bool Send();
+	bool Recv();
+
 #pragma pack(push, 1)
 
 	// 战车Manifold-STM32传输通用帧结构体
 	struct TFrame
 	{
-		typedef byte unsigned char;
+		typedef unsigned char byte;
 
 		byte bySOF; // [SOF] 帧起始标识（Start of Frame），固定为0x66
 
