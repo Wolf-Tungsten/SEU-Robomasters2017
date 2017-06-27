@@ -1,0 +1,3 @@
+CConfig.h/.cpp ---- ANSI
+Chariot.h/.cpp ---- UTF-8
+ChariotEx.h/.cpp -- UTF-8

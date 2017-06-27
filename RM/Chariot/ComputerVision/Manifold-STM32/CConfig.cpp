@@ -28,17 +28,12 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 */
 
-//--------------------------------------------//
-// CConfig.cpp                                //
-//                                            //
-// The implement of the class CConfig.        //
-// Can run in multi OS.                       //
-//                                            //
-// Writed by Deyou Kong, 2016-12-10           //
-// Checked by Deyou Kong, 2016-12-11          //
-// Found BUGs, see the "Note" in this file,   //
-//                     Deyou Kong, 2017-06-03 //
-//--------------------------------------------//
+// CConfig.cpp
+// The implement of the class CConfig.
+// Can run in multi OS.
+// Writed by Deyou Kong, 2016-12-10
+// Checked by Deyou Kong, 2016-12-11
+// Found BUGs, see the "Note" in CConfig.cpp. --Deyou Kong, 2017-06-03
 
 #include "CConfig.h"
 
@@ -71,7 +66,7 @@ bool CConfig::LoadFile(unsigned int * puiLine)
 	ifstream fin(m_szFilePath.c_str());
 
 	if (!fin)
-	{
+	{	
 		return false;
 	}
 

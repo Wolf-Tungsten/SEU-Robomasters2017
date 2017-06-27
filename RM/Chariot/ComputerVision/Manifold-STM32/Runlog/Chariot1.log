@@ -1,0 +1,8 @@
+Open serial of "/dev/ttyTHS1"
+Preparation is successful.
+Success in writing data to serial. Writed: 64. FrmSeq is 1
+Success in writing data to serial. Writed: 64. FrmSeq is 2
+Success in writing data to serial. Writed: 64. FrmSeq is 3
+Success in writing data to serial. Writed: 64. FrmSeq is 4
+Success in writing data to serial. Writed: 64. FrmSeq is 5
+Success in writing data to serial. Writed: 64. FrmSeq is 6

@@ -28,18 +28,12 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 */
 
-//--------------------------------------------//
-// CConfig.h                                  //
-//                                            //
-// Class CConfig is declared in this header   //
-// file.                                      //
-// Can run in multi OS.                       //
-//                                            //
-// Writed by Deyou Kong, 2016-12-10           //
-// Checked by Deyou Kong, 2016-12-11          //
-// Found BUGs, see the "Note" in CConfig.cpp, //
-//                     Deyou Kong, 2017-06-03 //
-//--------------------------------------------//
+// CConfig.h
+// Class CConfig is declared in this header file.
+// Can run in multi OS.
+// Writed by Deyou Kong, 2016-12-10
+// Checked by Deyou Kong, 2016-12-11
+// Found BUGs, see the "Note" in CConfig.cpp. --Deyou Kong, 2017-06-03
 
 #pragma once
 
@@ -47,7 +41,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <sstream>
 #include <string>
 #include <map>
-#include <xfunctional>
+#include <functional>
 #include <cctype>
 using namespace std;
 
