@@ -16,7 +16,7 @@ double d_greenRectArea = 2000; //绿通道装甲板面积
 double d_dDistanceBetweenLightBarAndGreenRect =40; //灯条和边距间的垂直距离
 double d_dAngleBetweenLightBarAndGreenRect = 30;
 int i_greenCannyHi = 15;
-int i_greenCannyLo = 45;
+int i_greenCannyLo = 75;
 
 
 
@@ -57,7 +57,7 @@ vector<int> findArmor(Mat m_sourceImage,int i_color )
     //查找绿色通道的边缘
     vector<vector<Point> > v_greenContours;
     vector<Vec4i> v_greenHierarchy;
-    GaussianBlur(m_greenCanny,m_greenCanny,Size(5,5),0);
+    GaussianBlur(m_greenCanny,m_greenCanny,Size(3,3),0);
     findContours( m_greenCanny, v_greenContours, v_greenHierarchy, CV_RETR_TREE, CV_CHAIN_APPROX_SIMPLE, Point(0, 0) );
     //绘制最小矩形
     vector<RotatedRect> v_minGreenRect( v_greenContours.size() );
@@ -140,10 +140,10 @@ vector<int> findArmor(Mat m_sourceImage,int i_color )
 
             if((v_lightBar_Rect[j].center.x-v_suitGreenRect[i].center.x)*(v_lightBar_Rect[j].center.x-v_suitGreenRect[i].center.x)+
                     (v_lightBar_Rect[j].center.y-v_suitGreenRect[i].center.y)*(v_lightBar_Rect[j].center.y-v_suitGreenRect[i].center.y)
-               <=0.25*v_suitGreenRect[i].size.width*v_suitGreenRect[i].size.width+0.25*v_suitGreenRect[i].size.height*v_suitGreenRect[i].size.height
-                    //abs(v_lightBar_Rect[j].center.x-v_suitGreenRect[i].center.x)<1*v_suitGreenRect[i].size.width &&
-                    //abs(v_lightBar_Rect[j].center.y-v_suitGreenRect[i].center.y)<=d_dDistanceBetweenLightBarAndGreenRect &&
-                    //abs(v_lightBar_Rect[j].angle-v_suitGreenRect[i].angle)<=d_dAngleBetweenLightBarAndGreenRect
+               <=0.25*v_suitGreenRect[i].size.width*v_suitGreenRect[i].size.width+0.25*v_suitGreenRect[i].size.height*v_suitGreenRect[i].size.height&&
+                    abs(v_lightBar_Rect[j].center.x-v_suitGreenRect[i].center.x)<0.6*v_suitGreenRect[i].size.width &&
+                    abs(v_lightBar_Rect[j].center.y-v_suitGreenRect[i].center.y)<=d_dDistanceBetweenLightBarAndGreenRect &&
+                    abs(v_lightBar_Rect[j].angle-v_suitGreenRect[i].angle)<=d_dAngleBetweenLightBarAndGreenRect
                     ){
                 //for(int l=0;l<v_center.size();l++) {
                  //   if((v_center[l].x-v_suitGreenRect[i].center.x)*(v_center[l].x-v_suitGreenRect[i].center.x)+
@@ -155,8 +155,9 @@ vector<int> findArmor(Mat m_sourceImage,int i_color )
                 //    } else{
                         v_center.push_back(v_suitGreenRect[i].center);
                     //}
-                }
                 break;
+                }
+
             }
         }
 

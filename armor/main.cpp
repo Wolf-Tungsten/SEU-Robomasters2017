@@ -28,9 +28,9 @@ int main( int argc, char** argv )
     createTrackbar("Canny Hi","contours",&i_greenCannyHi,255,on_trackbar);
     createTrackbar("Canny Lo","contours",&i_greenCannyLo,255,on_trackbar);
 
-    Mat src = imread("/Users/WolfTungsten/Development/armor/testImage/8.jpg",CV_LOAD_IMAGE_COLOR);
-    findArmor(src,ARMOR_RED);
-    cvWaitKey(0);
+    //Mat src = imread("/Users/WolfTungsten/Development/armor/testImage/8.jpg",CV_LOAD_IMAGE_COLOR);
+    //findArmor(src,ARMOR_RED);
+    //cvWaitKey(0);
     Mat frame;
     bool stop=false;
     while (!stop){
