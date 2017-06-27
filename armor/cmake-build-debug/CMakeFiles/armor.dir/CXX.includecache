@@ -6,23 +6,23 @@
 
 #IncludeRegexTransform: 
 
-/Users/WolfTungsten/Development/armor/armor.cpp
+/Users/WolfTungsten/Development/SEU-Robomasters2017/armor/armor.cpp
 armor.h
-/Users/WolfTungsten/Development/armor/armor.h
+/Users/WolfTungsten/Development/SEU-Robomasters2017/armor/armor.h
 
-/Users/WolfTungsten/Development/armor/armor.h
+/Users/WolfTungsten/Development/SEU-Robomasters2017/armor/armor.h
 opencv2/imgproc/imgproc.hpp
-/Users/WolfTungsten/Development/armor/opencv2/imgproc/imgproc.hpp
+/Users/WolfTungsten/Development/SEU-Robomasters2017/armor/opencv2/imgproc/imgproc.hpp
 opencv2/highgui/highgui.hpp
-/Users/WolfTungsten/Development/armor/opencv2/highgui/highgui.hpp
+/Users/WolfTungsten/Development/SEU-Robomasters2017/armor/opencv2/highgui/highgui.hpp
 iostream
 -
 vector
 -
 
-/Users/WolfTungsten/Development/armor/main.cpp
+/Users/WolfTungsten/Development/SEU-Robomasters2017/armor/main.cpp
 armor.h
-/Users/WolfTungsten/Development/armor/armor.h
+/Users/WolfTungsten/Development/SEU-Robomasters2017/armor/armor.h
 ctime
 -
 

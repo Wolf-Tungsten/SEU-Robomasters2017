@@ -54,10 +54,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/WolfTungsten/Development/armor
+CMAKE_SOURCE_DIR = /Users/WolfTungsten/Development/SEU-Robomasters2017/armor
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/WolfTungsten/Development/armor/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/WolfTungsten/Development/SEU-Robomasters2017/armor/cmake-build-debug
 
 #=============================================================================
 # Target rules for target CMakeFiles/armor.dir
@@ -66,7 +66,7 @@ CMAKE_BINARY_DIR = /Users/WolfTungsten/Development/armor/cmake-build-debug
 CMakeFiles/armor.dir/all:
 	$(MAKE) -f CMakeFiles/armor.dir/build.make CMakeFiles/armor.dir/depend
 	$(MAKE) -f CMakeFiles/armor.dir/build.make CMakeFiles/armor.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/WolfTungsten/Development/armor/cmake-build-debug/CMakeFiles --progress-num=1,2,3 "Built target armor"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/WolfTungsten/Development/SEU-Robomasters2017/armor/cmake-build-debug/CMakeFiles --progress-num=1,2,3 "Built target armor"
 .PHONY : CMakeFiles/armor.dir/all
 
 # Include target in all.
@@ -76,9 +76,9 @@ all: CMakeFiles/armor.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/armor.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/WolfTungsten/Development/armor/cmake-build-debug/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/WolfTungsten/Development/SEU-Robomasters2017/armor/cmake-build-debug/CMakeFiles 3
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/armor.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/WolfTungsten/Development/armor/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/WolfTungsten/Development/SEU-Robomasters2017/armor/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/armor.dir/rule
 
 # Convenience name for target.

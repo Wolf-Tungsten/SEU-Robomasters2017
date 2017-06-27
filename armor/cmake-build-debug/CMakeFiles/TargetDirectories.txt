@@ -1,3 +1,3 @@
-/Users/WolfTungsten/Development/armor/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/WolfTungsten/Development/armor/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/WolfTungsten/Development/armor/cmake-build-debug/CMakeFiles/armor.dir
+/Users/WolfTungsten/Development/SEU-Robomasters2017/armor/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/WolfTungsten/Development/SEU-Robomasters2017/armor/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/WolfTungsten/Development/SEU-Robomasters2017/armor/cmake-build-debug/CMakeFiles/armor.dir

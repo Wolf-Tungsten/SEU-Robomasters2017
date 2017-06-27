@@ -1,4 +1,4 @@
-# Install script for directory: /Users/WolfTungsten/Development/armor
+# Install script for directory: /Users/WolfTungsten/Development/SEU-Robomasters2017/armor
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -35,5 +35,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/WolfTungsten/Development/armor/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/WolfTungsten/Development/SEU-Robomasters2017/armor/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

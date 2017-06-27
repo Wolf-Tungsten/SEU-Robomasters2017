@@ -5,41 +5,41 @@
 		<Option title="armor"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\usr\;CMake Files\..\..\..\..\usr\local\;CMake Files\..\..\..\..\usr\local\share\;CMake Files\..\..\..\..\usr\local\share\OpenCV\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\usr\local\;CMake Files\..\..\..\..\..\usr\local\share\;CMake Files\..\..\..\..\..\usr\local\share\OpenCV\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/Users/WolfTungsten/Development/armor/cmake-build-debug"/>
+				<Option working_dir="/Users/WolfTungsten/Development/SEU-Robomasters2017/armor/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/armor/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/armor/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/armor/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/armor/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/SEU-Robomasters2017/armor/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/SEU-Robomasters2017/armor/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/SEU-Robomasters2017/armor/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/SEU-Robomasters2017/armor/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/Users/WolfTungsten/Development/armor/cmake-build-debug"/>
+				<Option working_dir="/Users/WolfTungsten/Development/SEU-Robomasters2017/armor/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/armor/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/armor/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/armor/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/armor/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/SEU-Robomasters2017/armor/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/SEU-Robomasters2017/armor/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/SEU-Robomasters2017/armor/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/SEU-Robomasters2017/armor/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/Users/WolfTungsten/Development/armor/cmake-build-debug"/>
+				<Option working_dir="/Users/WolfTungsten/Development/SEU-Robomasters2017/armor/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/armor/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/armor/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/armor/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/armor/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/SEU-Robomasters2017/armor/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/SEU-Robomasters2017/armor/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/SEU-Robomasters2017/armor/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/SEU-Robomasters2017/armor/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="armor">
-				<Option output="/Users/WolfTungsten/Development/armor/cmake-build-debug/armor" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/WolfTungsten/Development/armor/cmake-build-debug"/>
+				<Option output="/Users/WolfTungsten/Development/SEU-Robomasters2017/armor/cmake-build-debug/armor" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/WolfTungsten/Development/SEU-Robomasters2017/armor/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -54,15 +54,15 @@
 					<Add directory="/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/armor/cmake-build-debug/Makefile&quot;  VERBOSE=1 armor"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/armor/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/armor/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/armor/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/SEU-Robomasters2017/armor/cmake-build-debug/Makefile&quot;  VERBOSE=1 armor"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/SEU-Robomasters2017/armor/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/SEU-Robomasters2017/armor/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/SEU-Robomasters2017/armor/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="armor/fast">
-				<Option output="/Users/WolfTungsten/Development/armor/cmake-build-debug/armor" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/WolfTungsten/Development/armor/cmake-build-debug"/>
+				<Option output="/Users/WolfTungsten/Development/SEU-Robomasters2017/armor/cmake-build-debug/armor" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/WolfTungsten/Development/SEU-Robomasters2017/armor/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -77,36 +77,36 @@
 					<Add directory="/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/armor/cmake-build-debug/Makefile&quot;  VERBOSE=1 armor/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/armor/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/armor/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/armor/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/SEU-Robomasters2017/armor/cmake-build-debug/Makefile&quot;  VERBOSE=1 armor/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/SEU-Robomasters2017/armor/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/SEU-Robomasters2017/armor/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/SEU-Robomasters2017/armor/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/WolfTungsten/Development/armor/armor.cpp">
+		<Unit filename="/Users/WolfTungsten/Development/SEU-Robomasters2017/armor/armor.cpp">
 			<Option target="armor"/>
 		</Unit>
-		<Unit filename="/Users/WolfTungsten/Development/armor/armor.h">
+		<Unit filename="/Users/WolfTungsten/Development/SEU-Robomasters2017/armor/armor.h">
 			<Option target="armor"/>
 		</Unit>
-		<Unit filename="/Users/WolfTungsten/Development/armor/main.cpp">
+		<Unit filename="/Users/WolfTungsten/Development/SEU-Robomasters2017/armor/main.cpp">
 			<Option target="armor"/>
 		</Unit>
-		<Unit filename="/Users/WolfTungsten/Development/armor/CMakeLists.txt">
+		<Unit filename="/Users/WolfTungsten/Development/SEU-Robomasters2017/armor/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
-		<Unit filename="/Users/WolfTungsten/Development/armor/../../../../usr/local/share/OpenCV/OpenCVConfig-version.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\OpenCV\"/>
+		<Unit filename="/Users/WolfTungsten/Development/SEU-Robomasters2017/armor/../../../../../usr/local/share/OpenCV/OpenCVConfig-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\share\OpenCV\"/>
 		</Unit>
-		<Unit filename="/Users/WolfTungsten/Development/armor/../../../../usr/local/share/OpenCV/OpenCVConfig.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\OpenCV\"/>
+		<Unit filename="/Users/WolfTungsten/Development/SEU-Robomasters2017/armor/../../../../../usr/local/share/OpenCV/OpenCVConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\share\OpenCV\"/>
 		</Unit>
-		<Unit filename="/Users/WolfTungsten/Development/armor/../../../../usr/local/share/OpenCV/OpenCVModules.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\OpenCV\"/>
+		<Unit filename="/Users/WolfTungsten/Development/SEU-Robomasters2017/armor/../../../../../usr/local/share/OpenCV/OpenCVModules.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\share\OpenCV\"/>
 		</Unit>
-		<Unit filename="/Users/WolfTungsten/Development/armor/../../../../usr/local/share/OpenCV/OpenCVModules-release.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\OpenCV\"/>
+		<Unit filename="/Users/WolfTungsten/Development/SEU-Robomasters2017/armor/../../../../../usr/local/share/OpenCV/OpenCVModules-release.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\share\OpenCV\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>
