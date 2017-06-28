@@ -1,8 +1,8 @@
 //
-// Created by 狼剩子 on 2017/6/27.
+// Created by 狼剩子 on 2017/6/28.
 //
 
-#ifndef ARMOR_ARMOR_H
+#ifndef ARMOR_WITH_CIRCLE_ARMOR_H
 #include "opencv2/imgproc/imgproc.hpp"
 #include "opencv2/highgui/highgui.hpp"
 #include <iostream>
@@ -21,4 +21,7 @@ vector<Point2f> findArmor(Mat m_sourceImage,int i_color );
 Point2f getArmor (Mat m_sourceImage,int i_color );
 #define ARMOR_ARMOR_H
 
-#endif //ARMOR_ARMOR_H
+
+#define ARMOR_WITH_CIRCLE_ARMOR_H
+
+#endif //ARMOR_WITH_CIRCLE_ARMOR_H

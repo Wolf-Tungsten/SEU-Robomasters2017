@@ -6,15 +6,15 @@
 
 #IncludeRegexTransform: 
 
-/Users/WolfTungsten/Development/SEU-Robomasters2017/armor/armor.cpp
+/Users/WolfTungsten/Development/SEU-Robomasters2017/armor_with_circle/armor.cpp
 armor.h
-/Users/WolfTungsten/Development/SEU-Robomasters2017/armor/armor.h
+/Users/WolfTungsten/Development/SEU-Robomasters2017/armor_with_circle/armor.h
 
-/Users/WolfTungsten/Development/SEU-Robomasters2017/armor/armor.h
+/Users/WolfTungsten/Development/SEU-Robomasters2017/armor_with_circle/armor.h
 opencv2/imgproc/imgproc.hpp
-/Users/WolfTungsten/Development/SEU-Robomasters2017/armor/opencv2/imgproc/imgproc.hpp
+/Users/WolfTungsten/Development/SEU-Robomasters2017/armor_with_circle/opencv2/imgproc/imgproc.hpp
 opencv2/highgui/highgui.hpp
-/Users/WolfTungsten/Development/SEU-Robomasters2017/armor/opencv2/highgui/highgui.hpp
+/Users/WolfTungsten/Development/SEU-Robomasters2017/armor_with_circle/opencv2/highgui/highgui.hpp
 iostream
 -
 vector
@@ -22,9 +22,9 @@ vector
 queue
 -
 
-/Users/WolfTungsten/Development/SEU-Robomasters2017/armor/main.cpp
+/Users/WolfTungsten/Development/SEU-Robomasters2017/armor_with_circle/main.cpp
 armor.h
-/Users/WolfTungsten/Development/SEU-Robomasters2017/armor/armor.h
+/Users/WolfTungsten/Development/SEU-Robomasters2017/armor_with_circle/armor.h
 ctime
 -
 

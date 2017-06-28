@@ -1,0 +1,4 @@
+/Applications/CLion.app/Contents/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/WolfTungsten/Development/SEU-Robomasters2017/armor_with_circle
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/WolfTungsten/Development/SEU-Robomasters2017/armor_with_circle/cmake-build-debug

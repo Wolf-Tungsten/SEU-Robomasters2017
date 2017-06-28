@@ -17,7 +17,7 @@ double d_dDistanceBetweenLightBarAndGreenRect =40; //灯条和边距间的垂直
 double d_dAngleBetweenLightBarAndGreenRect = 180;
 int i_greenCannyHi = 15;
 int i_greenCannyLo = 75;
-
+vector< vector<Point2f> >  v_pointSet;
 
 double distance(double x1,double y1,double x2,double y2){
 return (x1-x2)*(x1-x2)+(y1-y2)*(y1-y2);
@@ -26,7 +26,7 @@ return (x1-x2)*(x1-x2)+(y1-y2)*(y1-y2);
 
 
 
-vector<int> findArmor(Mat m_sourceImage,int i_color )
+vector<Point2f> findArmor(Mat m_sourceImage,int i_color )
 {
     resize(m_sourceImage,m_sourceImage,Size(640,480));
     //m_sourceImage.convertTo(m_sourceImage,m_sourceImage.type(),3,-400);
@@ -48,10 +48,8 @@ vector<int> findArmor(Mat m_sourceImage,int i_color )
     }
     else {
         cerr << "Color set Error!" << endl;
-        vector<int> error;
-        error.push_back(-1);
-        error.push_back(-1);
-        return error;
+        vector<Point2f> empty;
+        return empty;
     }
 
     //查找矩形的部分
@@ -96,7 +94,8 @@ vector<int> findArmor(Mat m_sourceImage,int i_color )
     for( int i = 0; i< v_minRect.size(); i++ ) {
         Point p_centerOfRect = v_minRect[i].center;
         if(m_sourcePlane.at<uchar>(p_centerOfRect)>=i_highLight &&
-           m_dvalue.at<uchar>(p_centerOfRect)<=i_lowLight)
+           m_dvalue.at<uchar>(p_centerOfRect)<=i_lowLight&&
+                v_minRect[i].size.area()>800)
         {
             //if(v_minRect[i].size.height/v_minRect[i].size.width>=k
             //&& abs(v_minRect[i].angle)<=20
@@ -124,7 +123,7 @@ vector<int> findArmor(Mat m_sourceImage,int i_color )
 
 
 #if DEBUG
-    imshow("green",m_green);
+
     imshow("greenRec",m_greenDrawing);
     imshow("color_pannel",m_sourcePlane);
     //提高对比度
@@ -147,7 +146,7 @@ vector<int> findArmor(Mat m_sourceImage,int i_color )
     for(int i=0;i<v_suitGreenRect.size();i++)
     {
                         v_center.push_back(v_suitGreenRect[i].center);
-                    
+
         }
 
 
@@ -226,9 +225,39 @@ vector<int> findArmor(Mat m_sourceImage,int i_color )
     imshow("final",m_sourceImage);
 #endif
 
-    vector<int> result;
-    result.push_back(-1);
-    result.push_back(-1);
-    return result;
+    imshow("final",m_sourceImage);
+    return v_center;
 
+}
+
+Point2f getArmor (Mat m_sourceImage,int i_color )
+{
+    Mat m_pointMap=Mat::zeros( Size(650,490), CV_8U );
+    if (v_pointSet.size()<6)
+    {
+        v_pointSet.push_back(findArmor(m_sourceImage,i_color));
+        return Point2f(-1,-1);
+    }
+    else
+    {
+        v_pointSet.push_back(findArmor(m_sourceImage,i_color));
+        v_pointSet.erase(v_pointSet.begin());
+        for(int i=0;i<v_pointSet.size();i++)
+        {
+         for(int j=0;j<v_pointSet[i].size();j++){
+             float x = v_pointSet[i][j].x;
+             float y = v_pointSet[i][j].y;
+             Mat m_temp=Mat::zeros( Size(650,490), CV_8U );
+                     // m_pointMap.at<uchar>(v_pointSet[i][j].y , v_pointSet[i][j].x ) += 255;
+                    circle(m_temp,v_pointSet[i][j],15,Scalar(255),-1);
+             addWeighted(m_pointMap,1,m_temp,0.2,0,m_pointMap);
+
+
+
+         }
+
+        }
+      //  threshold(m_pointMap,m_pointMap,160,255,0);
+    }
+    imshow("PointSet",m_pointMap);
 }
