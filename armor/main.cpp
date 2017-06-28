@@ -36,7 +36,7 @@ int main( int argc, char** argv )
     while (!stop){
         cap>>frame;
         findArmor(frame,ARMOR_BLUE);
-        cvWaitKey(10);
+        cvWaitKey(100);
     }
 
     return 0;
