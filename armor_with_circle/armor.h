@@ -18,7 +18,7 @@ const int ARMOR_BLUE = 0;
 const int ARMOR_RED = 1;
 
 vector<Point2f> findArmor(Mat m_sourceImage,int i_color );
-Point2f getArmor (Mat m_sourceImage,int i_color );
+Point getArmor (Mat m_sourceImage,int i_color );
 #define ARMOR_ARMOR_H
 
 

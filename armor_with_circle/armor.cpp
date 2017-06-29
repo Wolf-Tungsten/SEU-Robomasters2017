@@ -4,20 +4,15 @@
 //
 
 #include "armor.h"
-#define DEBUG 1
+#define DEBUG 0
 
 int i_cannyHi = 15; //Canny算子上阈值
 int i_cannyLo = 45; //Canny算子下阈值
 int i_highLight = 215; //灯条原图高阈值
 int i_lowLight = 10; //灯条原图低阈值
-double k = 1.3;//椭圆比例
-double d_dAngle = 5; //灯条斜率差距的阈值
-double d_minDistance = 300; //灯条中心距离的阈值
-double d_greenRectArea = 2000; //绿通道装甲板面积
-double d_dDistanceBetweenLightBarAndGreenRect =100; //灯条和边距间的垂直距离
-double d_dAngleBetweenLightBarAndGreenRect = 180;
-int i_greenCannyHi = 15;
-int i_greenCannyLo = 75;
+double k = 2;//椭圆比例
+double d_areaDivDistanceLo = 0.01;
+double d_areaDivDistanceHi = 0.5;
 int dilation_size =3;
 int morpho_size = 3;
 vector< vector<Point2f> >  v_pointSet;
@@ -40,9 +35,10 @@ vector<Point2f> findArmor(Mat m_sourceImage,int i_color )
     if(i_color == ARMOR_BLUE)
     {
         m_sourcePanel = panel[0].clone();
-        addWeighted(panel[0],2,panel[1],-1,0,m_dvalue);
-        addWeighted(m_dvalue,1,panel[2],-1,0,m_dvalue);
-        i_highLight = 120;
+        addWeighted(panel[0],1.5,panel[1],-0.75,0,m_dvalue);
+        addWeighted(m_dvalue,1,panel[2],-0.75,0,m_dvalue);
+        i_highLight = 250;
+        i_lowLight =5;
         dilation_size =0;
         morpho_size = 3;
     }
@@ -69,21 +65,7 @@ vector<Point2f> findArmor(Mat m_sourceImage,int i_color )
     vector<Vec4i> v_greenHierarchy;
     /// 阈值化检测边界
     //threshold( src_gray, threshold_output, thresh, 255, THRESH_BINARY );
-    /// 寻找轮廓
-    findContours( green_canny, v_greenContours, v_greenHierarchy, CV_RETR_TREE, CV_CHAIN_APPROX_SIMPLE, Point(0, 0) );
-    vector<RotatedRect> v_greenMinRect(v_greenContours.size() );
-    vector<RotatedRect> v_greenMinEllipse( v_greenContours.size() );
 
-    for( int i = 0; i < v_greenContours.size(); i++ )
-    { v_greenMinRect[i] = minAreaRect( Mat(v_greenContours[i]) );
-        if(v_greenContours[i].size() > 30 &&
-                (v_greenMinRect[i].size.width>v_greenMinRect[i].size.height?(v_greenMinRect[i].size.width*1.0/v_greenMinRect[i].size.height):(v_greenMinRect[i].size.height*1.0/v_greenMinRect[i].size.width))<=k)
-        {
-            cout<<"椭圆斜率"<<((v_greenMinRect[i].size.width>v_greenMinRect[i].size.height)?(v_greenMinRect[i].size.width*1.0/v_greenMinRect[i].size.height):(v_greenMinRect[i].size.height*1.0/v_greenMinRect[i].size.width))<<endl;
-
-
-            v_greenMinEllipse[i] = fitEllipse( Mat(v_greenContours[i]) ); }
-    }
 
 #if DEBUG
     imshow("green",green_panel);
@@ -152,23 +134,46 @@ vector<Point2f> findArmor(Mat m_sourceImage,int i_color )
     vector<RotatedRect> v_lightBar;//存储灯条矩形
     for(int i=0;i<hull.size();i++)
     {
-        v_minRect[i]=minAreaRect(hull[i]);
-        float f_dpanel,f_srcPanel;
+        v_minRect[i]=minAreaRect(hull[i]); //灯条凸包
+        double d_dpanelMin,d_dpanelMax,d_srcPanelMin,d_srcPanelMax;//灯条识别区域的最大值和最小值
+        Point2f p_pointOfMinRect[4]; //获取灯条四个点
+        v_minRect[i].points(p_pointOfMinRect);
+        int i_minX = p_pointOfMinRect[0].x;
+        int i_minY = p_pointOfMinRect[0].y;
+        int i_maxX = p_pointOfMinRect[3].x;
+        int i_maxY = p_pointOfMinRect[3].y;
+
+        for(int j=0;j<4;j++)
+        {
+            if(i_minX>p_pointOfMinRect[j].x)
+                i_minX=p_pointOfMinRect[j].x;
+            if(i_minY>p_pointOfMinRect[j].y)
+                i_minY=p_pointOfMinRect[j].y;
+            if(i_maxX<p_pointOfMinRect[j].x)
+                i_maxX=p_pointOfMinRect[j].x;
+            if(i_maxY<p_pointOfMinRect[j].y)
+                i_maxY=p_pointOfMinRect[j].y;
+        }
+        i_minX = (i_minX>=0)?(i_minX):0;
+        i_minY = (i_minY>=0)?(i_minY):0;
+        i_maxX = (i_maxX<640)?(i_maxX):639;
+        i_maxY = (i_maxY<480)?(i_maxY):479;
+
+
         Mat m_dpanelROI,m_srcPanelROI;
-        m_dpanelROI = m_dvalue(Rect((v_minRect[i].center.x-10)<=0||(v_minRect[i].center.x+10)>=640?0:v_minRect[i].center.x-10,(v_minRect[i].center.y-10)<=0||(v_minRect[i].center.y+10)>=480?0:v_minRect[i].center.y-10,20,20));
-        m_srcPanelROI = m_sourcePanel(Rect((v_minRect[i].center.x-10)<=0||(v_minRect[i].center.x+10)>=640?0:v_minRect[i].center.x-10,(v_minRect[i].center.y-10)<=0||(v_minRect[i].center.y+10)>=480?0:v_minRect[i].center.y-10,20,20));
+        m_dpanelROI = m_dvalue(Rect(i_minX,i_minY,i_maxX-i_minX,i_maxY-i_minY));
+        m_srcPanelROI = m_sourcePanel(Rect(i_minX,i_minY,i_maxX-i_minX,i_maxY-i_minY));
+        //将灯条定义成感兴趣区域
+        minMaxLoc(m_dpanelROI,&d_dpanelMin,&d_dpanelMax);
+        minMaxLoc(m_srcPanelROI,&d_srcPanelMin,&d_srcPanelMax);
+        //从灯条的感兴趣区域内读取最大值、最小值作为判断依据
 
-        f_dpanel = mean(m_dpanelROI)[0];
-        f_srcPanel = mean(m_srcPanelROI)[0];
-        cout<<"减色："<<f_dpanel<<" 原通道："<<f_srcPanel<<endl;
-        if(
-                //f_srcPanel>i_highLight &&
-            f_srcPanel-f_dpanel>100
 
-                ) {
+        if(d_dpanelMin<i_lowLight && d_srcPanelMax>i_highLight) {//通过减色通道和原通道判断是否是灯条
 
             v_lightBar.push_back(v_minRect[i]);
 #if DEBUG
+            cout<<"减色："<<d_dpanelMin<<" 原通道："<<d_srcPanelMax<<endl;
             Point2f Drect[4];
             v_minRect[i].points(Drect);
             for (int j = 0; j < 4; j++)
@@ -178,27 +183,108 @@ vector<Point2f> findArmor(Mat m_sourceImage,int i_color )
 
     }
 
-#if DEBUG
-    for( int i = 0; i< v_greenContours.size(); i++ )
-    {
-        RNG rng(12345);
-        Scalar color = Scalar( rng.uniform(0, 255), rng.uniform(0,255), rng.uniform(0,255) );
-        // contour
-        drawContours( drawing, v_greenContours, i, Scalar(225,0,0), 1, 8, vector<Vec4i>(), 0, Point() );
-        // ellipse
-        ellipse( drawing, v_greenMinEllipse[i], Scalar(0,255,0), 2, 8 );
-        // rotated rectangle
-        Point2f rect_points[4]; v_greenMinRect[i].points( rect_points );
-        for( int j = 0; j < 4; j++ )
-            line( drawing, rect_points[j], rect_points[(j+1)%4], color, 1, 8 );
-    }
-#endif
+
 
     vector<Point2f> v_center;
+//遍历所有灯条
     for(int i=0;i<v_lightBar.size();i++)
     {
         for(int j=i+1;j<v_lightBar.size();j++)
         {
+            //任取两个灯条
+            double d_lightBarArea =(v_lightBar[i].size.area()>v_lightBar[j].size.area())?v_lightBar[i].size.area():v_lightBar[i].size.area();
+            double d_lightBarDistance = distance(v_lightBar[i].center.x,v_lightBar[i].center.y,
+                                                 v_lightBar[j].center.x,v_lightBar[j].center.y);
+            //cout<<"面积距离比："<<d_lightBarArea/d_lightBarDistance<<endl;
+            //判断其面积和距离的比值
+            if(d_lightBarArea/d_lightBarDistance>d_areaDivDistanceLo && d_lightBarArea/d_lightBarDistance<d_areaDivDistanceHi){
+
+                Point2f p_point1[4];
+                Point2f p_point2[4];
+                Point2f p_point[8];
+                v_lightBar[i].points(p_point1);
+                v_lightBar[j].points(p_point2);
+                for(int a = 0;a<8;a++)
+                    p_point[a] = (a<4)?p_point1[a]:p_point2[a-4];
+                int i_minX = p_point[0].x;
+                int i_minY = p_point[0].y;
+                int i_maxX = p_point[3].x;
+                int i_maxY = p_point[3].y;
+
+                for(int b=0;b<8;b++)
+                {
+                    if(i_minX>p_point[b].x)
+                        i_minX=p_point[b].x-20;
+                    if(i_minY>p_point[b].y)
+                        i_minY=p_point[b].y-20;
+                    if(i_maxX<p_point[b].x)
+                        i_maxX=p_point[b].x+20;
+                    if(i_maxY<p_point[b].y)
+                        i_maxY=p_point[b].y+20;
+                }
+                i_minX = (i_minX>=0)?(i_minX):0;
+                i_minY = (i_minY>=0)?(i_minY):0;
+                i_maxX = (i_maxX<640)?(i_maxX):639;
+                i_maxY = (i_maxY<480)?(i_maxY):479;
+
+                Mat greenROI = green_canny(Rect(i_minX,i_minY,i_maxX-i_minX,i_maxY-i_minY));
+
+                //将符合条件的灯条所在区域设置为感兴趣区域，并在绿色其中寻找轮廓
+                findContours( greenROI, v_greenContours, v_greenHierarchy, CV_RETR_TREE, CV_CHAIN_APPROX_SIMPLE, Point(0, 0) );
+                vector<RotatedRect> v_greenMinRect(v_greenContours.size() );
+                vector<RotatedRect> v_greenMinEllipse( v_greenContours.size() );
+
+                for( int c = 0; c < v_greenContours.size(); c++ )
+                    //从找出的绿色轮廓中拟合椭圆轮廓，判断椭圆离心率
+                { v_greenMinRect[c] = minAreaRect( Mat(v_greenContours[c]) );
+                    if(v_greenContours[c].size() > 30 &&
+                       (v_greenMinRect[c].size.width>v_greenMinRect[c].size.height?(v_greenMinRect[c].size.width*1.0/v_greenMinRect[c].size.height):(v_greenMinRect[c].size.height*1.0/v_greenMinRect[c].size.width))<=k)
+                    {
+                        //cout<<"椭圆斜率"<<((v_greenMinRect[i].size.width>v_greenMinRect[i].size.height)?(v_greenMinRect[i].size.width*1.0/v_greenMinRect[i].size.height):(v_greenMinRect[i].size.height*1.0/v_greenMinRect[i].size.width))<<endl;
+                        v_greenMinEllipse[c] = fitEllipse( Mat(v_greenContours[c]) );
+                    }
+                }
+                //判断椭圆的圆心和两个灯条中心的距离是否符合要求
+                for(int d=0;d<v_greenMinEllipse.size();d++)
+                {
+                    double d_centerOfLightx=(v_lightBar[i].center.x+v_lightBar[j].center.x)*0.5;
+                    double d_centerOfLighty=(v_lightBar[i].center.y+v_lightBar[j].center.y)*0.5;
+                    double d_dDistanceBetweenLightBarAndGreenRect=v_greenMinEllipse[d].size.area()*0.03;
+                    if(distance(d_centerOfLightx,d_centerOfLighty,v_greenMinEllipse[d].center.x+i_minX,v_greenMinEllipse[d].center.y+i_minY)<d_dDistanceBetweenLightBarAndGreenRect)
+                    {
+                        v_center.push_back(Point2f(d_centerOfLightx,d_centerOfLighty));
+                        cout<<"发现装甲板["<<d_centerOfLightx<<","<<d_centerOfLighty<<"]"<<endl;
+                    }
+                }
+                //v_center.push_back(Point2f(0.5*(v_lightBar[i].center.x+v_lightBar[j].center.x),0.5*(v_lightBar[i].center.y+v_lightBar[j].center.y)));
+#if DEBUG
+                for( int e = 0; e< v_greenContours.size(); e++ )
+                {
+                    RNG rng(12345);
+                    Scalar color = Scalar( rng.uniform(0, 255), rng.uniform(0,255), rng.uniform(0,255) );
+                    // contour
+                    drawContours( drawing, v_greenContours, e, Scalar(225,0,0), 1, 8, vector<Vec4i>(), 0, Point() );
+                    // ellipse
+                    ellipse( drawing, v_greenMinEllipse[e], Scalar(0,255,0), 2, 8 );
+                    // rotated rectangle
+                    Point2f rect_points[4]; v_greenMinRect[e].points( rect_points );
+                    for( int f = 0; f < 4; f++ )
+                        line( drawing, rect_points[f], rect_points[(f+1)%4], color, 1, 8 );
+                }
+#endif
+            }
+
+
+
+
+
+
+
+
+
+
+
+            /*
             for(int l=0;l<v_greenMinEllipse.size();l++)
             {
                 double d_centerOfLightx=(v_lightBar[i].center.x+v_lightBar[j].center.x)*0.5;
@@ -209,14 +295,20 @@ vector<Point2f> findArmor(Mat m_sourceImage,int i_color )
                     v_center.push_back(Point2f(d_centerOfLightx,d_centerOfLighty));
                 }
             }
+             */
         }
     }
+
+
+
+
+
 
     for(int i=0;i<v_center.size();i++)
     {
         circle(m_sourceImage,v_center[i],10,Scalar(0,255,0),3);
     }
-    imshow("Final",m_sourceImage);
+   // imshow("Final",m_sourceImage);
 
 
 
@@ -234,7 +326,7 @@ vector<Point2f> findArmor(Mat m_sourceImage,int i_color )
 }
 
 
-Point2f getArmor (Mat m_sourceImage,int i_color )
+Point getArmor (Mat m_sourceImage,int i_color )
 {
     Mat m_pointMap=Mat::zeros( Size(650,490), CV_8U );
     if (v_pointSet.size()<6)
@@ -253,8 +345,8 @@ Point2f getArmor (Mat m_sourceImage,int i_color )
                 float y = v_pointSet[i][j].y;
                 Mat m_temp=Mat::zeros( Size(650,490), CV_8U );
                 // m_pointMap.at<uchar>(v_pointSet[i][j].y , v_pointSet[i][j].x ) += 255;
-                circle(m_temp,v_pointSet[i][j],15,Scalar(255),-1);
-                addWeighted(m_pointMap,1,m_temp,0.2,0,m_pointMap);
+                circle(m_temp,v_pointSet[i][j],15,Scalar(25),-1);
+                addWeighted(m_pointMap,1,m_temp,0.2*i,0,m_pointMap);
 
 
 
@@ -263,5 +355,18 @@ Point2f getArmor (Mat m_sourceImage,int i_color )
         }
         //  threshold(m_pointMap,m_pointMap,160,255,0);
     }
+    Point p_max;
+    minMaxLoc(m_pointMap,NULL,NULL,NULL,&p_max);
+    resize(m_sourceImage,m_sourceImage,Size(640,480));
+    Scalar drawingColor(0,0,0);
+    if(i_color == ARMOR_BLUE)
+        drawingColor = Scalar(0,0,255);
+    else
+        drawingColor = Scalar(255,0,0);
+    if(p_max.x!=0 && p_max.y!=0)
+    circle(m_sourceImage,p_max,5,drawingColor,3);
+
+    imshow("Final",m_sourceImage);
     imshow("PointSet",m_pointMap);
+    return p_max;
 }
