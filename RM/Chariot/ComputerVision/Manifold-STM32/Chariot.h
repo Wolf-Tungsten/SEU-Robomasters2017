@@ -16,13 +16,13 @@ class CChariot
 #define FD_DIR_MANI2STM 0
 #define FD_DIR_STM2MANI 1
 
-#define FD_TYP_CTRL_CHASSIS 0x00
-#define FD_TYP_CTRL_HEAD    0x01
-#define FD_TYP_CTRL_SHOOT   0x02
-#define FD_TYP_INFO_GAME    0x10
-#define FD_TYP_INFO_RBLOOD  0x11
-#define FD_TYP_INFO_RSHOOT  0x12
-#define FD_TYP_CUSTDATA     0x90
+#define FD_TYP_CTRL_CHASSIS 0x0000
+#define FD_TYP_CTRL_HEAD    0x0001
+#define FD_TYP_CTRL_SHOOT   0x0002
+#define FD_TYP_INFO_GAME    0x0010
+#define FD_TYP_INFO_RBLOOD  0x0011
+#define FD_TYP_INFO_RSHOOT  0x0012
+#define FD_TYP_CUSTDATA     0x0090
 
 public:
 
