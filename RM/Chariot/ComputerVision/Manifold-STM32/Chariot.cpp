@@ -72,8 +72,8 @@ CChariot::CChariot()
 
 	tcgetattr(fdSerial, &tOption);
 	cfmakeraw(&tOption);
-	cfsetispeed(&tOption, B9600);
-	cfsetospeed(&tOption, B9600);
+	cfsetispeed(&tOption, B9600); // 接收波特率
+	cfsetospeed(&tOption, B9600); // 发送波特率
 	tcsetattr(fdSerial, TCSANOW, &tOption);
 
 	tOption.c_cflag &= ~PARENB;
