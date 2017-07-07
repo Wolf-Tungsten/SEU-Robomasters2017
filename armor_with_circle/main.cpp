@@ -3,9 +3,8 @@
 #include <ctime>
 void   Delay(int   time)//time*1000为秒数
 {
-    clock_t   now   =   clock();
-
-    while(   clock()   -   now   <   time   );
+    clock_t  now   = clock();
+    while(  clock()   -   now   <   time   );
 }
 extern int i_greenCannyHi;
 extern int i_greenCannyLo;
@@ -13,11 +12,14 @@ void on_trackbar(int,void*)
 {return;}
 int main( int argc, char** argv )
 {
-    VideoCapture cap(1);
+    VideoCapture cap(0);
     if(!cap.isOpened())
     {
         return -1;
     }
+    cap.set(CV_CAP_PROP_FRAME_WIDTH,640);
+    cap.set(CV_CAP_PROP_FRAME_HEIGHT,480);
+
     cvNamedWindow("color_panel",CV_WINDOW_AUTOSIZE);
     cvNamedWindow("d_panel",CV_WINDOW_AUTOSIZE);
     cvNamedWindow("Canny",CV_WINDOW_AUTOSIZE);
@@ -37,8 +39,12 @@ int main( int argc, char** argv )
 
     while (!stop){
         cap>>frame;
+        //imshow("canny",frame);
+        clock_t time1 = clock();
         getArmor(frame,ARMOR_RED);
-        cvWaitKey(10);
+        clock_t time2 = clock();
+        cout<<time2-time1<<endl;
+        cvWaitKey(1);
 
     }
 

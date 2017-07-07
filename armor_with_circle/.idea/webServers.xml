@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="1eff54b4-d1c7-4238-806d-41f014e8b2e0" name="Manifold" url="http://192.168.1.229">
+        <fileTransfer host="192.168.1.229" port="22" rootFolder="/home/ubuntu" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

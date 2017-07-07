@@ -1,0 +1,5 @@
+/Applications/CLion.app/Contents/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/WolfTungsten/Development/SEU-Robomasters2017/armor-with-classifier
+-- Found OpenCV: /usr/local/Cellar/opencv3/3.2.0 (found version "3.2.0") 
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/WolfTungsten/Development/SEU-Robomasters2017/armor-with-classifier/cmake-build-debug

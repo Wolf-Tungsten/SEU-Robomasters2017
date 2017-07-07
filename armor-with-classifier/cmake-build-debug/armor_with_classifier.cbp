@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="armor_with_classifier"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\usr\local\;CMake Files\..\..\..\..\..\usr\local\opt\;CMake Files\..\..\..\..\..\usr\local\opt\opencv3\;CMake Files\..\..\..\..\..\usr\local\opt\opencv3\share\;CMake Files\..\..\..\..\..\usr\local\opt\opencv3\share\OpenCV\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/WolfTungsten/Development/SEU-Robomasters2017/armor-with-classifier/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/SEU-Robomasters2017/armor-with-classifier/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/SEU-Robomasters2017/armor-with-classifier/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/SEU-Robomasters2017/armor-with-classifier/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/SEU-Robomasters2017/armor-with-classifier/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/WolfTungsten/Development/SEU-Robomasters2017/armor-with-classifier/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/SEU-Robomasters2017/armor-with-classifier/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/SEU-Robomasters2017/armor-with-classifier/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/SEU-Robomasters2017/armor-with-classifier/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/SEU-Robomasters2017/armor-with-classifier/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/WolfTungsten/Development/SEU-Robomasters2017/armor-with-classifier/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/SEU-Robomasters2017/armor-with-classifier/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/SEU-Robomasters2017/armor-with-classifier/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/SEU-Robomasters2017/armor-with-classifier/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/SEU-Robomasters2017/armor-with-classifier/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="armor_with_classifier">
+				<Option output="/Users/WolfTungsten/Development/SEU-Robomasters2017/armor-with-classifier/cmake-build-debug/armor_with_classifier" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/WolfTungsten/Development/SEU-Robomasters2017/armor-with-classifier/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/Cellar/opencv3/3.2.0/include"/>
+					<Add directory="/usr/local/Cellar/opencv3/3.2.0/include/opencv"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.1.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/SEU-Robomasters2017/armor-with-classifier/cmake-build-debug/Makefile&quot;  VERBOSE=1 armor_with_classifier"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/SEU-Robomasters2017/armor-with-classifier/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/SEU-Robomasters2017/armor-with-classifier/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/SEU-Robomasters2017/armor-with-classifier/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="armor_with_classifier/fast">
+				<Option output="/Users/WolfTungsten/Development/SEU-Robomasters2017/armor-with-classifier/cmake-build-debug/armor_with_classifier" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/WolfTungsten/Development/SEU-Robomasters2017/armor-with-classifier/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/Cellar/opencv3/3.2.0/include"/>
+					<Add directory="/usr/local/Cellar/opencv3/3.2.0/include/opencv"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.1.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/SEU-Robomasters2017/armor-with-classifier/cmake-build-debug/Makefile&quot;  VERBOSE=1 armor_with_classifier/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/SEU-Robomasters2017/armor-with-classifier/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/SEU-Robomasters2017/armor-with-classifier/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/WolfTungsten/Development/SEU-Robomasters2017/armor-with-classifier/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/WolfTungsten/Development/SEU-Robomasters2017/armor-with-classifier/armor_sample_marker.h">
+			<Option target="armor_with_classifier"/>
+		</Unit>
+		<Unit filename="/Users/WolfTungsten/Development/SEU-Robomasters2017/armor-with-classifier/main.cpp">
+			<Option target="armor_with_classifier"/>
+		</Unit>
+		<Unit filename="/Users/WolfTungsten/Development/SEU-Robomasters2017/armor-with-classifier/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/Users/WolfTungsten/Development/SEU-Robomasters2017/armor-with-classifier/../../../../../usr/local/opt/opencv3/share/OpenCV/OpenCVConfig-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\opt\opencv3\share\OpenCV\"/>
+		</Unit>
+		<Unit filename="/Users/WolfTungsten/Development/SEU-Robomasters2017/armor-with-classifier/../../../../../usr/local/opt/opencv3/share/OpenCV/OpenCVConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\opt\opencv3\share\OpenCV\"/>
+		</Unit>
+		<Unit filename="/Users/WolfTungsten/Development/SEU-Robomasters2017/armor-with-classifier/../../../../../usr/local/opt/opencv3/share/OpenCV/OpenCVModules.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\opt\opencv3\share\OpenCV\"/>
+		</Unit>
+		<Unit filename="/Users/WolfTungsten/Development/SEU-Robomasters2017/armor-with-classifier/../../../../../usr/local/opt/opencv3/share/OpenCV/OpenCVModules-release.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\opt\opencv3\share\OpenCV\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

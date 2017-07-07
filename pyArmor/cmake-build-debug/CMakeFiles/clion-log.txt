@@ -1,0 +1,15 @@
+/Applications/CLion.app/Contents/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/WolfTungsten/Development/SEU-Robomasters2017/pyArmor
+CMake Warning at /Applications/CLion.app/Contents/bin/cmake/share/cmake-3.7/Modules/FindBoost.cmake:761 (message):
+  Imported targets not available for Boost version 106400
+Call Stack (most recent call first):
+  /Applications/CLion.app/Contents/bin/cmake/share/cmake-3.7/Modules/FindBoost.cmake:865 (_Boost_COMPONENT_DEPENDENCIES)
+  /Applications/CLion.app/Contents/bin/cmake/share/cmake-3.7/Modules/FindBoost.cmake:1454 (_Boost_MISSING_DEPENDENCIES)
+  CMakeLists.txt:5 (find_package)
+
+
+-- Boost version: 1.64.0
+-- Found the following Boost libraries:
+--   python
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/WolfTungsten/Development/SEU-Robomasters2017/pyArmor/cmake-build-debug
