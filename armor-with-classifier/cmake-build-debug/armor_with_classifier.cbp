@@ -86,6 +86,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/WolfTungsten/Development/SEU-Robomasters2017/armor-with-classifier/armor_sample_marker.cpp">
+			<Option target="armor_with_classifier"/>
+		</Unit>
 		<Unit filename="/Users/WolfTungsten/Development/SEU-Robomasters2017/armor-with-classifier/armor_sample_marker.h">
 			<Option target="armor_with_classifier"/>
 		</Unit>

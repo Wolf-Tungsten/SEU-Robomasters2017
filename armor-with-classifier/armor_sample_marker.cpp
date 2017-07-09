@@ -15,6 +15,7 @@ double d_areaDivDistanceLo = 0.01;
 double d_areaDivDistanceHi = 0.5;
 int dilation_size =3;
 int morpho_size = 3;
+int border_size = 5;
 vector< vector<Point2f> >  v_pointSet;
 
 double distance(double x1,double y1,double x2,double y2){
@@ -222,12 +223,20 @@ vector<Point2f> findArmor(Mat m_sourceImage,int i_color )
                     if(i_maxY<p_point[b].y)
                         i_maxY=p_point[b].y+20;
                 }
+
+                int i_minOutputX = i_minX-border_size;
+                int i_maxOutputX = i_maxX+border_size;
+                int i_minOutputY = i_minY-border_size;
+                int i_maxOutputY = i_maxY+border_size;
+
+
                 i_minX = (i_minX>=0)?(i_minX):0;
                 i_minY = (i_minY>=0)?(i_minY):0;
                 i_maxX = (i_maxX<640)?(i_maxX):639;
                 i_maxY = (i_maxY<480)?(i_maxY):479;
 
                 Mat greenROI = green_canny(Rect(i_minX,i_minY,i_maxX-i_minX,i_maxY-i_minY));
+
 
                 //将符合条件的灯条所在区域设置为感兴趣区域，并在绿色其中寻找轮廓
                 findContours( greenROI, v_greenContours, v_greenHierarchy, CV_RETR_TREE, CV_CHAIN_APPROX_SIMPLE, Point(0, 0) );
@@ -245,6 +254,7 @@ vector<Point2f> findArmor(Mat m_sourceImage,int i_color )
                     }
                 }
                 //判断椭圆的圆心和两个灯条中心的距离是否符合要求
+
                 for(int d=0;d<v_greenMinEllipse.size();d++)
                 {
                     double d_centerOfLightx=(v_lightBar[i].center.x+v_lightBar[j].center.x)*0.5;
@@ -253,6 +263,7 @@ vector<Point2f> findArmor(Mat m_sourceImage,int i_color )
                     if(distance(d_centerOfLightx,d_centerOfLighty,v_greenMinEllipse[d].center.x+i_minX,v_greenMinEllipse[d].center.y+i_minY)<d_dDistanceBetweenLightBarAndGreenRect)
                     {
                         v_center.push_back(Point2f(d_centerOfLightx,d_centerOfLighty));
+                        marker(m_sourceImage, 100,i_minX,i_minY,i_maxX,i_maxY);
                         cout<<"发现装甲板["<<d_centerOfLightx<<","<<d_centerOfLighty<<"]"<<endl;
                     }
                 }
@@ -369,4 +380,46 @@ Point getArmor (Mat m_sourceImage,int i_color )
     imshow("Final",m_sourceImage);
     imshow("PointSet",m_pointMap);
     return p_max;
+}
+
+void marker(Mat input,int size, int minX, int minY, int maxX, int maxY){
+    int i_rectMinX = minX+5;
+    int i_rectMinY = minY+10;
+    int i_rectMaxX = maxX-5;
+    int i_rectMaxY = maxY-10;
+    minX -= border_size;
+    minY -= border_size;
+    maxX += border_size;
+    maxY += border_size;
+    static int filename=1;
+    int i_areaSize;
+    int i_expandSize;
+    Mat m_src = input.clone();
+    Mat m_drawing = input.clone();
+    if((maxX-minX)>(maxY-minY)){
+        i_areaSize = maxX-minX;
+        i_expandSize = i_areaSize-(maxY-minY);
+        minY -= 0.5 * i_expandSize;
+    }
+    else{
+        i_areaSize = maxY-minY;
+        i_expandSize = i_areaSize-(maxX-minX);
+        minX -= 0.5 * i_expandSize;
+    }
+    try{
+
+
+        Mat m_ROI = m_src(Rect(minX,minY,i_areaSize,i_areaSize)).clone();
+        Mat m_drawingROI = m_drawing(Rect(minX,minY,i_areaSize,i_areaSize)).clone();
+
+        resize(m_ROI, m_ROI, Size(size,size));
+        imwrite("/Volumes/sd/SampleBlue1/"+to_string(filename++)+".jpg",m_ROI);
+        imshow("ROI", m_ROI);
+
+        return;
+
+    }
+    catch (...){
+        cout<<"异常！"<<endl;
+    }
 }

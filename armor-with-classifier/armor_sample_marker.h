@@ -3,12 +3,15 @@
 //
 
 #ifndef ARMOR_WITH_CLASSIFIER_ARMOR_SAMPLE_MARKER_H
+#define ARMOR_WITH_CLASSIFIER_ARMOR_SAMPLE_MARKER_H
+
 #include "opencv2/imgproc/imgproc.hpp"
 #include "opencv2/highgui/highgui.hpp"
 #include <iostream>
 #include <vector>
 #include <queue>
-
+#include <stdlib.h>
+#include <string>
 using namespace std;
 using namespace cv;
 
@@ -19,9 +22,8 @@ const int ARMOR_RED = 1;
 
 vector<Point2f> findArmor(Mat m_sourceImage,int i_color );
 Point getArmor (Mat m_sourceImage,int i_color );
-#define ARMOR_ARMOR_H
+void marker(Mat input,int size, int minX, int minY, int maxX, int maxY);
 
 
-#define ARMOR_WITH_CLASSIFIER_ARMOR_SAMPLE_MARKER_H
 
 #endif //ARMOR_WITH_CLASSIFIER_ARMOR_SAMPLE_MARKER_H

@@ -123,6 +123,33 @@ armor_with_classifier/fast:
 	$(MAKE) -f CMakeFiles/armor_with_classifier.dir/build.make CMakeFiles/armor_with_classifier.dir/build
 .PHONY : armor_with_classifier/fast
 
+armor_sample_marker.o: armor_sample_marker.cpp.o
+
+.PHONY : armor_sample_marker.o
+
+# target to build an object file
+armor_sample_marker.cpp.o:
+	$(MAKE) -f CMakeFiles/armor_with_classifier.dir/build.make CMakeFiles/armor_with_classifier.dir/armor_sample_marker.cpp.o
+.PHONY : armor_sample_marker.cpp.o
+
+armor_sample_marker.i: armor_sample_marker.cpp.i
+
+.PHONY : armor_sample_marker.i
+
+# target to preprocess a source file
+armor_sample_marker.cpp.i:
+	$(MAKE) -f CMakeFiles/armor_with_classifier.dir/build.make CMakeFiles/armor_with_classifier.dir/armor_sample_marker.cpp.i
+.PHONY : armor_sample_marker.cpp.i
+
+armor_sample_marker.s: armor_sample_marker.cpp.s
+
+.PHONY : armor_sample_marker.s
+
+# target to generate assembly for a file
+armor_sample_marker.cpp.s:
+	$(MAKE) -f CMakeFiles/armor_with_classifier.dir/build.make CMakeFiles/armor_with_classifier.dir/armor_sample_marker.cpp.s
+.PHONY : armor_sample_marker.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -159,6 +186,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... armor_with_classifier"
+	@echo "... armor_sample_marker.o"
+	@echo "... armor_sample_marker.i"
+	@echo "... armor_sample_marker.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

@@ -4,6 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/Users/WolfTungsten/Development/SEU-Robomasters2017/armor-with-classifier/armor_sample_marker.cpp" "/Users/WolfTungsten/Development/SEU-Robomasters2017/armor-with-classifier/cmake-build-debug/CMakeFiles/armor_with_classifier.dir/armor_sample_marker.cpp.o"
   "/Users/WolfTungsten/Development/SEU-Robomasters2017/armor-with-classifier/main.cpp" "/Users/WolfTungsten/Development/SEU-Robomasters2017/armor-with-classifier/cmake-build-debug/CMakeFiles/armor_with_classifier.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
