@@ -7,7 +7,7 @@ from random import Random
 point_list = []
 point_counter = 0
 #输入路径
-img_path = '/Volumes/SD/BLUE3/'
+img_path = '/Volumes/SD/BLUE2/'
 #输出路径
 output_path = '/Volumes/SD/BlueOutput/'
 file_list = os.listdir('/Volumes/SD/BLUE3')
