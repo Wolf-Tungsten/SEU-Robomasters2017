@@ -34,7 +34,27 @@ vector<Point2f> findArmor(Mat m_sourceImage ,int i_color)
 
 vector<Point2f> findArmor_d(Mat m_sourceImage ,int i_color)
 {
+    vector<Mat> v_srcPanel;
+    split(m_sourceImage,v_srcPanel);
 
+    Mat m_Red,m_Green,m_Blue;
+    //threshold(v_srcPanel[0], m_Blue, 200, 255, CV_THRESH_BINARY);
+    //threshold(v_srcPanel[1], m_Green, 200, 255, CV_THRESH_BINARY);
+    //threshold(v_srcPanel[2], m_Red, 200, 255, CV_THRESH_BINARY);
+    m_Blue = v_srcPanel[0].clone();
+    m_Green = v_srcPanel[1].clone();
+    m_Red = v_srcPanel[2].clone();
+
+    Mat m_kernelRed = getStructuringElement(MORPH_RECT, Size(3, 3));
+    Mat m_kernelGreen = getStructuringElement(MORPH_RECT, Size(3, 3));
+    Mat m_kernelBlue = getStructuringElement(MORPH_RECT, Size(3, 3));
+
+    morphologyEx(m_Red, m_Red, MORPH_OPEN, m_kernelRed);
+    morphologyEx(m_Green, m_Green, MORPH_OPEN, m_kernelGreen);
+    morphologyEx(m_Blue, m_Blue, MORPH_OPEN, m_kernelBlue);
+
+    Mat m_dPanel;
+    
 }
 
 /*
