@@ -4,7 +4,7 @@
 //
 
 #include "armor.h"
-#define DEBUG 0
+#define DEBUG 1
 
 int i_cannyHi = 15; //Canny算子上阈值
 int i_cannyLo = 45; //Canny算子下阈值
@@ -306,7 +306,7 @@ vector<Point2f> findArmor(Mat m_sourceImage,int i_color )
 
     for(int i=0;i<v_center.size();i++)
     {
-        circle(m_sourceImage,v_center[i],10,Scalar(0,255,0),3);
+        //circle(m_sourceImage,v_center[i],10,Scalar(0,255,0),3);
     }
    // imshow("Final",m_sourceImage);
 

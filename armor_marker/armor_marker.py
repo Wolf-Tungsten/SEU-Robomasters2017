@@ -10,7 +10,7 @@ point_counter = 0
 img_path = '/Volumes/SD/BLUE2/'
 #输出路径
 output_path = '/Volumes/SD/BlueOutput/'
-file_list = os.listdir('/Volumes/SD/BLUE3')
+file_list = os.listdir('/Volumes/SD/BLUE2')
 cv2.namedWindow('mark',cv2.WND_PROP_OPENGL)
 cv2.namedWindow('result')
 img =''
